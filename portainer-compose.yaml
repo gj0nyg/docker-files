@@ -1,0 +1,15 @@
+version: '3'
+services:
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    restart: always
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/container/portainer:/data
+    labels:
+      - hidden = true
+    network_mode: bridge
